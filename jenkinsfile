@@ -5,35 +5,35 @@ pipeline {
         stage('Build') {
             steps {
                 // Use a build tool (e.g., Maven, Gradle, npm) to build your project
-                sh 'mvn clean package' // Example for Maven
+                // sh 'mvn clean package' // Example for Maven
                 // Or build a Docker image
-                sh 'docker build -t myapp .'
+                // sh 'docker build -t myapp .'
             }
         }
         stage('Test') {
             steps {
                 // Run automated tests using your chosen testing framework
-                sh 'mvn test' // Example for Maven
+                // sh 'mvn test' // Example for Maven
                 // Or run Docker container and execute tests
-                sh 'docker run myapp-test'
+                // sh 'docker run myapp-test'
             }
         }
         stage('Deploy') {
             steps {
                 // Deploy your application to a test environment
                 // Use a deployment tool (e.g., Docker Compose, AWS Elastic Beanstalk)
-                sh 'docker-compose up -d' // Example for Docker Compose
+                // sh 'docker-compose up -d' // Example for Docker Compose
                 // Or deploy to AWS Elastic Beanstalk
-                sh 'eb deploy'
+                // sh 'eb deploy'
             }
         }
         stage('Release') {
             steps {
                 // Promote the application to a production environment
                 // Use a release management tool (e.g., Octopus Deploy, AWS CodeDeploy)
-                sh 'octo deploy-release --version 1.0 --environment production' // Example for Octopus Deploy
+                // sh 'octo deploy-release --version 1.0 --environment production' // Example for Octopus Deploy
                 // Or deploy to AWS CodeDeploy
-                sh 'aws deploy create-deployment --application-name MyApp --deployment-group-name MyDeploymentGroup --s3-location my-bucket/my-app.zip'
+                // sh 'aws deploy create-deployment --application-name MyApp --deployment-group-name MyDeploymentGroup --s3-location my-bucket/my-app.zip'
             }
         }
     }
